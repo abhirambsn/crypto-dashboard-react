@@ -12,6 +12,7 @@ import { CoinData } from "../utils/apiService";
 import { Coin } from "../components";
 import { commaSeparate } from "../utils/commaSeparate";
 import { CryptoState } from "../CryptoContext";
+import HTMLReactParser from "html-react-parser";
 
 const CoinPage = () => {
   const { id } = useParams();
@@ -103,7 +104,7 @@ const CoinPage = () => {
             {coin?.name}
           </Typography>
           <Typography variant="subtitle1" style={classes.description}>
-            {coin?.description?.en.split(". ")[0]}
+            {HTMLReactParser(coin?.description?.en.split(". ")[0])}
           </Typography>
           <div className={classes.marketData}>
             <span style={{ display: "flex" }}>
